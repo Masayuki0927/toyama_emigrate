@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Flowchart</title>
+</head>
+<body>
+    <h2>{{ current_node['text'] }}</h2>
+    <form method="post" action="{{ url_for('get_next_node') }}">
+        {% for option in current_node['options'] %}
+            <input type="radio" name="choice" value="{{ option['text'] }}"> {{ option['text'] }}<br>
+        {% endfor %}
+        <input type="submit" value="次へ">
+    </form>
+</body>
+</html>
