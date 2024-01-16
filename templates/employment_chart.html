@@ -34,26 +34,21 @@
 
 <body>
     <div class="container-fluid">
-        <p><a href="#" onclick="goBack()" class="back-button"> ＜前に戻る</a></p>
+        {% if node['id'] != 'node1' %}
+            <p><a href="#" onclick="goBack()" class="back-button"> ＜前に戻る</a></p>
+        {% endif %}
     </div>
-    <div class="container bg-light p-4 mb-4">
-        <div class="row">
-            <div class="col-12 col-md-8 col-lg-6 mx-auto">
-                <!-- mx-autoで水平方向のマージンを自動で調整し中央揃え -->
-                <div class="form-wrapper">
-                    <h3 style="padding-bottom: 20px;">{{ node['text'] }}</h3>
-                    <form method="post" action="{{ url_for('get_next_node') }}">
-                        {% for option in node['options'] %}
-                            <label class="radio-option">
-                            <input type="radio" name="choice" value="{{ option['next_node_id'] }}" class="custom-radio">
-                            <span class="option-text">{{ option['text'] }}</span>
-                            </label><br>
-                        {% endfor %}
-                        <button type="submit" class="btn btn-primary custom-submit">次へ</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <div class="container-fluid bg-light p-4 mb-4">
+        <h2>{{ node['text'] }}</h2>
+        <form method="post" action="{{ url_for('employment_next_node') }}">
+            {% for option in node['options'] %}
+                <label class="radio-option">
+                    <input type="radio" name="choice" value="{{ option['next_node_id'] }}" class="custom-radio"> 
+                    <span class="option-text">{{ option['text'] }}</span>
+                </label><br>
+            {% endfor %}
+            <button type="submit" class="custom-submit" onclick="validateForm()">次へ</button>
+        </form>
     </div>
 </body>
 </html>

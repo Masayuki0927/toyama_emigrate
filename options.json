@@ -1,38 +1,246 @@
 {
-    "start": {
-      "text": "始めにどの選択肢を選びますか？",
-      "options": [
+    "nodes": [
         {
-          "text": "選択肢 1",
-          "next": "node1"
+            "id": "node1",
+            "text": "現在どちらにお住まいですか？",
+            "options": [
+                {"text": "富山市", "next_node_id": "node2"},
+                {"text": "東京23区内", "next_node_id": "node8"},
+                {"text": "東京圏（条件不利地域以外）", "next_node_id": "node11"},
+                {"text": "それ以外", "next_node_id": "out_of_scope"}
+            ]
         },
         {
-          "text": "選択肢 2",
-          "next": "node2"
-        }
-      ]
-    },
-    "node1": {
-      "text": "選択肢 1 を選びました。次はどうしますか？",
-      "options": [
+            "id": "node2",
+            "text": "富山市に住民票を移してから1年以内ですか？ ",
+            "options": [
+                {"text": "1年以内", "next_node_id": "node3"},
+                {"text": "1年を過ぎている", "next_node_id": "out_of_scope"}
+            ]
+        },
         {
-          "text": "終了",
-          "next": "end"
-        }
-      ]
-    },
-    "node2": {
-      "text": "選択肢 2 を選びました。次はどうしますか？",
-      "options": [
+            "id": "node3",
+            "text": "富山市に住民票を移す前はどちらにお住まいでしたか？ ",
+            "options": [
+                {"text": "東京23区内", "next_node_id": "node4"},
+                {"text": "東京圏（条件不利地域以外）", "next_node_id": "end"},
+                {"text": "それ以外", "next_node_id": "out_of_scope"}
+            ]
+        },
         {
-          "text": "終了",
-          "next": "end"
+            "id": "node4",
+            "text": "富山市に住民票を移す直前1年以上、東京23区内にお住まいでしたか？ ",
+            "options": [
+                {"text": "住んでいた", "next_node_id": "node5"},
+                {"text": "住んでいなかった", "next_node_id": "node1"}
+            ]
+        },
+        {
+            "id": "node5",
+            "text": "富山市に住民票を移す直前10年間の内、通算5年以上東京23区内にお住まいでしたか？ ",
+            "options": [
+                {"text": "住んでいた", "next_node_id": "within_of_scope"},
+                {"text": "住んでいなかった", "next_node_id": "node1"}
+            ]
+        },
+        {
+            "id": "node6",
+            "text": "富山市に住民票を移す直前1年以上、東京23区内に通勤していましたか？※ ",
+            "options": [
+                {"text": "通勤していた", "next_node_id": "node7"},
+                {"text": "通勤していなかった", "next_node_id": "out_of_scope"}
+            ]
+        },
+        {
+            "id": "node7",
+            "text": "富山市に住民票を移す直前10年間の内、通算5年以上東京圏（条件不利地域以外）から東京23区に通勤していましたか？",
+            "options": [
+                {"text": "通勤していた", "next_node_id": "within_of_scope"},
+                {"text": "通勤していなかった", "next_node_id": "out_of_scope"}
+            ]
+        },
+        {
+            "id": "node8",
+            "text": "富山市に住民票を移す直前1年以上,東京23区内に住む予定ですか？",
+            "options": [
+                {"text": "住む", "next_node_id": "node9"},
+                {"text": "住まない", "next_node_id": "out_of_scope"}
+            ]
+        },
+        {
+            "id": "node9",
+            "text": " 富山市に住民票を移す直前10年間の内、通算5年以上東京23区内に住む予定ですか？ ",
+            "options": [
+                {"text": "住む", "next_node_id": "within_of_scope"},
+                {"text": "住まない", "next_node_id": "node10"}
+            ]
+        },
+        {
+            "id": "node10",
+            "text": " 富山市に住民票を移す直前 10 年間の内、通算 5 年以上東京圏（条件不利地域以外）から東京 23 区に通勤する予定ですか？",
+            "options": [
+                {"text": "通勤する", "next_node_id": "within_of_scope"},
+                {"text": "通勤しない", "next_node_id": "out_of_scope"}
+            ]
+        },
+        {
+            "id": "node11",
+            "text": "富山市に住民票を移す直前 1 年以上、東京圏から東京 23 区内に通勤する予定ですか？",
+            "options": [
+                {"text": "通勤する", "next_node_id": "node12"},
+                {"text": "通勤しない", "next_node_id": "out_of_scope"}
+            ]
+        },
+        {
+            "id": "node12",
+            "text": "富山市に住民票を移す直前 10 年間の内、通算 5 年以上東京圏（条件不利地域以外）から東京 23 区に通勤する予定ですか？",
+            "options": [
+                {"text": "通勤する", "next_node_id": "within_of_scope"},
+                {"text": "通勤しない", "next_node_id": "node13"}
+            ]
+        },
+        {
+            "id": "node13",
+            "text": "富山市に住民票を移す直前 10 年間の内、通算 5 年以上東京 23 区内に住む予定ですか？",
+            "options": [
+                {"text": "住む", "next_node_id": "within_of_scope"},
+                {"text": "住まない", "next_node_id": "out_of_scope"}
+            ]
+        },
+        {
+            "id": "within_of_scope",
+            "text": "①移住等に関する要件を満たしています",
+            "options": []
+        },
+        {
+            "id": "out_of_scope",
+            "text": "移住支援金の対象外となる可能性が高いです",
+            "options": []
+        },
+        {
+            "id": "node21",
+            "text": "勤務地はどこですか？",
+            "options": [
+                {"text": "東京圏以外", "next_node_id": "node22"},
+                {"text": "東京圏", "next_node_id": "out_of_employ_scope"}
+            ]
+        },
+        {
+            "id": "node22",
+            "text": "勤務形態はテレワークですか？ ",
+            "options": [
+                {"text": "はい", "next_node_id": "node26"},
+                {"text": "いいえ", "next_node_id": "node23"}
+            ]
+        },
+        {
+            "id": "node23",
+            "text": "週 20 時間以上の無期雇用契約ですか？ ",
+            "options": [
+                {"text": "はい", "next_node_id": "node24"},
+                {"text": "いいえ", "next_node_id": "out_of_employ_scope"}
+            ]
+        },
+        {
+            "id": "node24",
+            "text": "勤務先に就業したきっかけは何ですか？  ",
+            "options": [
+                {"text": "都道府県のマッチングサイト", "next_node_id": "node25"},
+                {"text": "それ以外", "next_node_id": "node28"},
+                {"text": "国のマッチング事業", "next_node_id": "within_of_employ_scope"}
+            ]
+        },
+        {
+            "id": "node25",
+            "text": "勤務先は 3 親等以内の親族が経営を担う職についている企業ですか？  ",
+            "options": [
+                {"text": "違う", "next_node_id": "within_of_employ_scope"},
+                {"text": "そうだ", "next_node_id": "out_of_employ_scope"}
+            ]
+        },
+        {
+            "id": "node26",
+            "text": "所属先企業からの命令ではなく自分の意志で移住しましたか？ ",
+            "options": [
+                {"text": "はい", "next_node_id": "node27"},
+                {"text": "いいえ", "next_node_id": "out_of_employ_scope"}
+            ]
+        },
+        {
+            "id": "node27",
+            "text": "移住元での業務を引き続き行っていますか？ ",
+            "options": [
+                {"text": "はい", "next_node_id": "within_of_employ_scope"},
+                {"text": "いいえ", "next_node_id": "out_of_employ_scope"}
+            ]
+        },
+        {
+            "id": "node28",
+            "text": "富山市に住民票を移す前に、市内に住宅を所有又は 1 年以上賃貸借住宅を借りていましたか？（所有、賃貸主は配偶者でも可） ",
+            "options": [
+                {"text": "所有、賃貸していた", "next_node_id": "node25"},
+                {"text": "所有、賃貸していない", "next_node_id": "out_of_employ_scope"}
+            ]
+        },
+        {
+            "id": "within_of_employ_scope",
+            "text": "②就業に関する要件",
+            "options": []
+        },
+        {
+            "id": "out_of_employ_scope",
+            "text": "②就業に関する要件を満たしていません。そのため、移住支援金の対象外となる可能性が高いです。",
+            "options": []
+        },
+        {
+            "id": "node31",
+            "text": "富山市に住民票を移す前に、市内に住宅を所有又は 1 年以上賃貸借住宅を借りていましたか？（所有、賃貸主は配偶者でも可）",
+            "options": [
+                {"text": "所有、賃貸していた", "next_node_id": "node32"},
+                {"text": "所有、賃貸していない", "next_node_id": "node34"}
+            ]
+        },
+        {
+            "id": "node32",
+            "text": "富山市に住民票を移してから１年以内に富山市内で起業しましたか？",
+            "options": [
+                {"text": "はい", "next_node_id": "node33"},
+                {"text": "いいえ", "next_node_id": "out_of_found_scope"}
+            ]
+        },
+        {
+            "id": "node33",
+            "text": "雇用保険を掛けている従業員がいますか？  ",
+            "options": [
+                {"text": "はい", "next_node_id": "within_of_found_scope"},
+                {"text": "いいえ", "next_node_id": "out_of_found_scope"}
+            ]
+        },
+        {
+            "id": "node34",
+            "text": "富山県が実施する「とやまUIJ ターン起業支援事業」の起業支援金の交付決定を受けていますか？   ",
+            "options": [
+                {"text": "はい", "next_node_id": "node35"},
+                {"text": "いいえ", "next_node_id": "out_of_found_scope"}
+            ]
+        },
+        {
+            "id": "node35",
+            "text": "上記交付決定を受けたのは移住支援金申請予定日から１年以内ですか？  ",
+            "options": [
+                {"text": "はい", "next_node_id": "within_of_found_scope"},
+                {"text": "いいえ", "next_node_id": "out_of_found_scope"}
+            ]
+        },
+        {
+            "id": "within_of_found_scope",
+            "text": "③起業に関する要件",
+            "options": []
+        },
+        {
+            "id": "out_of_found_scope",
+            "text": "③起業に関する要件を満たしていません。そのため、移住支援金の対象外となる可能性が高いです。",
+            "options": []
         }
-      ]
-    },
-    "end": {
-      "text": "フローチャートの終わりです。お疲れさまでした。",
-      "options": []
-    }
-  }
-  
+    ]
+}
