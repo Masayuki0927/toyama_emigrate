@@ -42,7 +42,7 @@
                 <!-- mx-autoで水平方向のマージンを自動で調整し中央揃え -->
                 <div class="form-wrapper">
                     <h3 style="padding-bottom: 20px;">{{ node['text'] }}</h3>
-                    <form method="post" action="{{ url_for('get_next_node') }}">
+                    <form method="post" action="{{ url_for('get_next_node') }}" onsubmit="return validateForm();">
                         {% for option in node['options'] %}
                             <label class="radio-option">
                             <input type="radio" name="choice" value="{{ option['next_node_id'] }}" class="custom-radio">

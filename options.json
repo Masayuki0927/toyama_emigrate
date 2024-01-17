@@ -6,7 +6,7 @@
             "options": [
                 {"text": "富山市", "next_node_id": "node2"},
                 {"text": "東京23区内", "next_node_id": "node8"},
-                {"text": "東京圏（条件不利地域以外）", "next_node_id": "node11"},
+                {"text": "東京圏（条件不利地域以外）", "next_node_id": "node12"},
                 {"text": "それ以外", "next_node_id": "out_of_scope"}
             ]
         },
@@ -23,7 +23,7 @@
             "text": "富山市に住民票を移す前はどちらにお住まいでしたか？ ",
             "options": [
                 {"text": "東京23区内", "next_node_id": "node4"},
-                {"text": "東京圏（条件不利地域以外）", "next_node_id": "end"},
+                {"text": "東京圏（条件不利地域以外）", "next_node_id": "node6"},
                 {"text": "それ以外", "next_node_id": "out_of_scope"}
             ]
         },
@@ -32,7 +32,7 @@
             "text": "富山市に住民票を移す直前1年以上、東京23区内にお住まいでしたか？ ",
             "options": [
                 {"text": "住んでいた", "next_node_id": "node5"},
-                {"text": "住んでいなかった", "next_node_id": "node1"}
+                {"text": "住んでいなかった", "next_node_id": "node6"}
             ]
         },
         {
@@ -40,12 +40,12 @@
             "text": "富山市に住民票を移す直前10年間の内、通算5年以上東京23区内にお住まいでしたか？ ",
             "options": [
                 {"text": "住んでいた", "next_node_id": "within_of_scope"},
-                {"text": "住んでいなかった", "next_node_id": "node1"}
+                {"text": "住んでいなかった", "next_node_id": "node7"}
             ]
         },
         {
             "id": "node6",
-            "text": "富山市に住民票を移す直前1年以上、東京23区内に通勤していましたか？※ ",
+            "text": "富山市に住民票を移す直前1年以上、東京23区内に通勤していましたか？ ",
             "options": [
                 {"text": "通勤していた", "next_node_id": "node7"},
                 {"text": "通勤していなかった", "next_node_id": "out_of_scope"}
@@ -64,7 +64,7 @@
             "text": "富山市に住民票を移す直前1年以上,東京23区内に住む予定ですか？",
             "options": [
                 {"text": "住む", "next_node_id": "node9"},
-                {"text": "住まない", "next_node_id": "out_of_scope"}
+                {"text": "住まない", "next_node_id": "node11"}
             ]
         },
         {
@@ -87,20 +87,28 @@
             "id": "node11",
             "text": "富山市に住民票を移す直前 1 年以上、東京圏から東京 23 区内に通勤する予定ですか？",
             "options": [
-                {"text": "通勤する", "next_node_id": "node12"},
+                {"text": "通勤する", "next_node_id": "node9"},
                 {"text": "通勤しない", "next_node_id": "out_of_scope"}
             ]
         },
         {
             "id": "node12",
-            "text": "富山市に住民票を移す直前 10 年間の内、通算 5 年以上東京圏（条件不利地域以外）から東京 23 区に通勤する予定ですか？",
+            "text": "富山市に住民票を移す直前 1 年以上、東京圏から東京 23 区内に通勤する予定ですか？",
             "options": [
-                {"text": "通勤する", "next_node_id": "within_of_scope"},
-                {"text": "通勤しない", "next_node_id": "node13"}
+                {"text": "通勤する", "next_node_id": "node13"},
+                {"text": "通勤しない", "next_node_id": "out_of_scope"}
             ]
         },
         {
             "id": "node13",
+            "text": "富山市に住民票を移す直前 10 年間の内、通算 5 年以上東京圏（条件不利地域以外）から東京 23 区に通勤する予定ですか？",
+            "options": [
+                {"text": "通勤する", "next_node_id": "within_of_scope"},
+                {"text": "通勤しない", "next_node_id": "node14"}
+            ]
+        },
+        {
+            "id": "node14",
             "text": "富山市に住民票を移す直前 10 年間の内、通算 5 年以上東京 23 区内に住む予定ですか？",
             "options": [
                 {"text": "住む", "next_node_id": "within_of_scope"},

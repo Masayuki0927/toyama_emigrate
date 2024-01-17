@@ -10,6 +10,14 @@ with open('options.json', 'r') as emigrate_file:
 def index():
     return render_template('home.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route("/send_request")
+def send_request():
+    return render_template('send_request.html')
+
 @app.route('/first_node')
 def first_node():
     current_node = get_node_by_id("node1")
