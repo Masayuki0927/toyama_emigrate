@@ -30,19 +30,44 @@
             }
         }
     </script>
+    <style>
+        .custom-radio-container {
+            display: flex; /* flex コンテナとして配置 */
+            align-items: center; /* 縦方向の中央揃え */
+            border: 2px solid #ced4da; /* ボーダーの色 */
+            border-radius: 5px; /* 角丸 */
+            padding: 10px; /* 内部の余白 */
+            margin: 15px; /* 外部の余白 */
+            cursor: pointer;
+            width: 300px; /* 固定のブロック幅 */
+        }
+
+        .custom-radio {
+            display: none; /* デフォルトのラジオボタンを非表示 */
+        }
+
+        .custom-radio:checked + .custom-radio-container {
+            border-color: #007bff; /* 選択時のボーダーの色 */
+        }
+
+        .option-text {
+            margin-left: 10px; /* テキストとボーダーの間隔 */
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container-fluid">
+    {% include 'master.html' %}
+    <div class="container-fluid" style="margin-top: 55px;">
         <p><a href="#" onclick="goBack()" class="back-button"> ＜前に戻る</a></p>
     </div>
-    <div class="container bg-light p-4 mb-4">
+    <div class="container bg-white p-4 mb-4">
         <div class="row">
             <div class="col-12 col-md-8 col-lg-6 mx-auto">
                 <!-- mx-autoで水平方向のマージンを自動で調整し中央揃え -->
                 <div class="form-wrapper">
                     <h3 style="padding-bottom: 20px;">{{ node['text'] }}</h3>
-                    <form method="post" action="{{ url_for('get_next_node') }}" onsubmit="return validateForm();">
+                    <!-- <form method="post" action="{{ url_for('get_next_node') }}" onsubmit="return validateForm();">
                         {% for option in node['options'] %}
                             <label class="radio-option">
                             <input type="radio" name="choice" value="{{ option['next_node_id'] }}" class="custom-radio">
@@ -50,6 +75,14 @@
                             </label><br>
                         {% endfor %}
                         <button type="submit" class="btn btn-primary custom-submit">次へ</button>
+                    </form> -->
+                    <form method="post" action="{{ url_for('get_next_node') }}" onsubmit="return validateForm();">
+                        {% for option in node['options'] %}
+                        <label class="custom-radio-container">
+                            <input type="radio" name="choice" value="{{ option['next_node_id'] }}" class="custom-radio" onchange="this.form.submit();">
+                            <span class="option-text">{{ option['text'] }}</span>
+                        </label>
+                        {% endfor %}
                     </form>
                 </div>
             </div>

@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    {% include 'master.html' %}
     <div class="container-fluid">
         {% if node['id'] != 'node1' %}
             <p><a href="#" onclick="goBack()" class="back-button"> ＜前に戻る</a></p>

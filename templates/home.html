@@ -12,16 +12,26 @@
 
     {% include 'master.html' %}
 
-    <div class="container_fluid bg-light p-5 mb-5 text-center">
+    <div class="container_fluid bg-white p-4 mb-4 text-center" style="margin-top: 55px;">
         <!-- <h3 style = "padding-bottom: 20px; padding-top: 30px;">富山市移住支援金 対象判定シミュレーション</h3> -->
-        <a href = 'first_node' class="start_button" style = "padding-top: 10px;">シミュレーションを開始</a>
-        <p style="padding-top: 20px;">
-            支援金の対象となるには、①移住等に関する要件 を満たした上で<br>
-            ②就業に関する要件 もしくは ③起業に関する要件 を満たしている必要があります
-        </p>
+        <a href = 'first_node' class="btn btn-primary btn-lg start_button" style = "padding-top: 20px; padding-bottom: 20px;">シミュレーションを開始する</a>
+    </div>
+    <div class="container-fluid bg-light p-4 mb-4 text-center">
+        <!-- <p class="lead" style="font-weight: bold;">富山市移住支援金の対象要件を簡単にシミュレーションできるサービス</p> -->
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <p class="mb-4">富山市移住支援金は、東京23区から富山市へ移住された方を対象とした支援金です。</p>
+                <h5 class="mb-4" style="padding-top: 10px;">支援金の対象要件</h5>
+                <p class="mb-4">対象となるには、以下2つの条件を満たしている必要があります。</p>
+                <ol class="mb-4">
+                    <li>「①移住等に関する要件」を満たすこと</li>
+                    <li>「②就業に関する要件」を満たすか、または「③起業に関する要件」を満たすこと</li>
+                </ol>
+            </div>
+        </div>
     </div>
     <div class="container_fluid bg-white p-3 mb-3 text-center ">
-        <h6 style="color: red; text-align: center;">富山市HPの内容を参考に対象要件の判定フローを作成しておりますが正確性は保証できないため、公式に確認されたい場合は<a href="https://www.city.toyama.lg.jp/shisei/seisaku/1010755/1002498.html" target="_blank">富山市HP</a>からご確認ください</h6>
+        <h6 style="color: red; text-align: center;">富山市HPの内容を参考に対象要件の判定フローを作成しておりますが正確性は保証できないため、<br>公式に確認されたい場合は<a href="https://www.city.toyama.lg.jp/shisei/seisaku/1010755/1002498.html" target="_blank">富山市HP</a>をご確認ください</h6>
     </div>
 </body>
 </html>

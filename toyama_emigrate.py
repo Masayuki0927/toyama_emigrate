@@ -57,12 +57,5 @@ def foundation_first():
     current_node = get_node_by_id("node31")
     return render_template('flowchart.html', node=current_node)
 
-
-@app.route('/foundation')
-def foundation():
-    return render_template('foundation_chart.html')
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)

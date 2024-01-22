@@ -5,6 +5,17 @@ body {
   .start_button {
     display: inline-block;
     width: 80%;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 30px;
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  .employ_start_button {
+    display: inline-block;
+    width: 80%;
     padding: 10px 20px;
     text-decoration: none;
     color: #fff;
@@ -13,7 +24,7 @@ body {
     font-size: 20px;
     text-align: center;
   }
-  
+
   .found_start_button {
     display: inline-block;
     width: 80%;

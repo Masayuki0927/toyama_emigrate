@@ -9,15 +9,16 @@
     <title>対象判定シミュレーション</title>
 </head>
 <body>
-    <div class="container_fluid bg-light p-5 mb-5 text-center">
+    {% include 'master.html' %}
+    <div class="container_fluid bg-light p-5 mb-5 text-center" style="margin-top: 55px;">
         <h2 style="color: red; font-weight: bold;">{{ node['text'] }}</h2>
         <h5 style="padding-top: 20px;">続いて、就業/起業に関する要件を確認する</h5>
-        <a href=/employment_first class="start_button" style = "margin-top: 20px;">②就業に関する要件をシミュレーション</a><br>
-        <a href=/foundation_first class="found_start_button" style = "margin-top: 20px;">③起業に関する要件をシミュレーション</a><br>
-            ※富山県内で起業している場合のみこちらを選択
+        <a href=/employment_first class="employ_start_button" style = "margin-top: 30px;">②就業に関する要件をシミュレーション</a><br>
+        <a href=/foundation_first class="found_start_button" style = "margin-top: 30px;">③起業に関する要件をシミュレーション</a><br>
+            ※富山県内で起業している場合のみ③を選択
     </div>
-    <div class="container_fluid bg-white p-2 mb-2 text-center">
-        <span>※支援金の対象となるには、①移住等に関する要件 と合わせて<br>
-             ②就業に関する要件 もしくは ③起業に関する要件を満たしている必要があります。</span>
+    <div class="container_fluid bg-white p-1 mb-1 text-center">
+        <p><strong>※支援金の対象となるには、①移住等に関する要件 と合わせて<br>
+             ②就業に関する要件 もしくは ③起業に関する要件を満たしている必要があります。</strong></p>
     </div>
 </html>
